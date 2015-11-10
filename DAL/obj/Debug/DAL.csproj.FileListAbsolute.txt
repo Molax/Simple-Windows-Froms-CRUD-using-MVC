@@ -1,0 +1,12 @@
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DAL.dll.config
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DAL.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DAL.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DATA.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DTO.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\EntityFramework.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DATA.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\DTO.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\bin\Debug\EntityFramework.xml
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\obj\Debug\DAL.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DAL\obj\Debug\DAL.pdb

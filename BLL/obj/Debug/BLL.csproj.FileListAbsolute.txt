@@ -1,0 +1,14 @@
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\BLL.dll.config
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\BLL.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\BLL.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\DAL.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\DTO.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\EntityFramework.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\DATA.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\DAL.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\DTO.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\EntityFramework.xml
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\bin\Debug\DATA.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\obj\Debug\BLL.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\BLL\obj\Debug\BLL.pdb

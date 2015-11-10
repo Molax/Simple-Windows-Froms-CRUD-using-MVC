@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BancoEmpresaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BancoEmpresaModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="BancoEmpresaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblFuncionario" EntityType="BancoEmpresaModel.Store.tblFuncionario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblSetor" EntityType="BancoEmpresaModel.Store.tblSetor" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_tblFuncionario_tblSetor" Association="BancoEmpresaModel.Store.FK_tblFuncionario_tblSetor">
+            <End Role="tblSetor" EntitySet="tblSetor" />
+            <End Role="tblFuncionario" EntitySet="tblFuncionario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblFuncionario">
+          <Key>
+            <PropertyRef Name="nldFuncionario" />
+          </Key>
+          <Property Name="nldFuncionario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sNome" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="sNascimento" Type="date" Nullable="false" />
+          <Property Name="sCPF" Type="char" Nullable="false" MaxLength="14" />
+          <Property Name="sCargo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="nldSetor" Type="int" Nullable="false" />
+          <Property Name="sSalario" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSetor">
+          <Key>
+            <PropertyRef Name="nldSetor" />
+          </Key>
+          <Property Name="nldSetor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sSetor" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_tblFuncionario_tblSetor">
+          <End Role="tblSetor" Type="BancoEmpresaModel.Store.tblSetor" Multiplicity="1" />
+          <End Role="tblFuncionario" Type="BancoEmpresaModel.Store.tblFuncionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSetor">
+              <PropertyRef Name="nldSetor" />
+            </Principal>
+            <Dependent Role="tblFuncionario">
+              <PropertyRef Name="nldSetor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BancoEmpresaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BancoEmpresaEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="BancoEmpresaModel.sysdiagrams" />
+          <EntitySet Name="tblFuncionario" EntityType="BancoEmpresaModel.tblFuncionario" />
+          <EntitySet Name="tblSetor" EntityType="BancoEmpresaModel.tblSetor" />
+          <AssociationSet Name="FK_tblFuncionario_tblSetor" Association="BancoEmpresaModel.FK_tblFuncionario_tblSetor">
+            <End Role="tblSetor" EntitySet="tblSetor" />
+            <End Role="tblFuncionario" EntitySet="tblFuncionario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblFuncionario">
+          <Key>
+            <PropertyRef Name="nldFuncionario" />
+          </Key>
+          <Property Name="nldFuncionario" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="sNome" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="sNascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="sCPF" Type="String" Nullable="false" MaxLength="14" Unicode="false" FixedLength="true" />
+          <Property Name="sCargo" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="nldSetor" Type="Int32" Nullable="false" />
+          <Property Name="sSalario" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblSetor" Relationship="BancoEmpresaModel.FK_tblFuncionario_tblSetor" FromRole="tblFuncionario" ToRole="tblSetor" />
+        </EntityType>
+        <EntityType Name="tblSetor">
+          <Key>
+            <PropertyRef Name="nldSetor" />
+          </Key>
+          <Property Name="nldSetor" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="sSetor" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblFuncionario" Relationship="BancoEmpresaModel.FK_tblFuncionario_tblSetor" FromRole="tblSetor" ToRole="tblFuncionario" />
+        </EntityType>
+        <Association Name="FK_tblFuncionario_tblSetor">
+          <End Role="tblSetor" Type="BancoEmpresaModel.tblSetor" Multiplicity="1" />
+          <End Role="tblFuncionario" Type="BancoEmpresaModel.tblFuncionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSetor">
+              <PropertyRef Name="nldSetor" />
+            </Principal>
+            <Dependent Role="tblFuncionario">
+              <PropertyRef Name="nldSetor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BancoEmpresaModelStoreContainer" CdmEntityContainer="BancoEmpresaEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BancoEmpresaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFuncionario">
+            <EntityTypeMapping TypeName="BancoEmpresaModel.tblFuncionario">
+              <MappingFragment StoreEntitySet="tblFuncionario">
+                <ScalarProperty Name="nldFuncionario" ColumnName="nldFuncionario" />
+                <ScalarProperty Name="sNome" ColumnName="sNome" />
+                <ScalarProperty Name="sNascimento" ColumnName="sNascimento" />
+                <ScalarProperty Name="sCPF" ColumnName="sCPF" />
+                <ScalarProperty Name="sCargo" ColumnName="sCargo" />
+                <ScalarProperty Name="nldSetor" ColumnName="nldSetor" />
+                <ScalarProperty Name="sSalario" ColumnName="sSalario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSetor">
+            <EntityTypeMapping TypeName="BancoEmpresaModel.tblSetor">
+              <MappingFragment StoreEntitySet="tblSetor">
+                <ScalarProperty Name="nldSetor" ColumnName="nldSetor" />
+                <ScalarProperty Name="sSetor" ColumnName="sSetor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

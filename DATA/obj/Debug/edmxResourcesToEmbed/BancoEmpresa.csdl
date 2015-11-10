@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BancoEmpresaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BancoEmpresaEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="BancoEmpresaModel.sysdiagrams" />
+    <EntitySet Name="tblFuncionario" EntityType="BancoEmpresaModel.tblFuncionario" />
+    <EntitySet Name="tblSetor" EntityType="BancoEmpresaModel.tblSetor" />
+    <AssociationSet Name="FK_tblFuncionario_tblSetor" Association="BancoEmpresaModel.FK_tblFuncionario_tblSetor">
+      <End Role="tblSetor" EntitySet="tblSetor" />
+      <End Role="tblFuncionario" EntitySet="tblFuncionario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblFuncionario">
+    <Key>
+      <PropertyRef Name="nldFuncionario" />
+    </Key>
+    <Property Name="nldFuncionario" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="sNome" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="sNascimento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="sCPF" Type="String" Nullable="false" MaxLength="14" Unicode="false" FixedLength="true" />
+    <Property Name="sCargo" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="nldSetor" Type="Int32" Nullable="false" />
+    <Property Name="sSalario" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblSetor" Relationship="BancoEmpresaModel.FK_tblFuncionario_tblSetor" FromRole="tblFuncionario" ToRole="tblSetor" />
+  </EntityType>
+  <EntityType Name="tblSetor">
+    <Key>
+      <PropertyRef Name="nldSetor" />
+    </Key>
+    <Property Name="nldSetor" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="sSetor" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblFuncionario" Relationship="BancoEmpresaModel.FK_tblFuncionario_tblSetor" FromRole="tblSetor" ToRole="tblFuncionario" />
+  </EntityType>
+  <Association Name="FK_tblFuncionario_tblSetor">
+    <End Role="tblSetor" Type="BancoEmpresaModel.tblSetor" Multiplicity="1" />
+    <End Role="tblFuncionario" Type="BancoEmpresaModel.tblFuncionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSetor">
+        <PropertyRef Name="nldSetor" />
+      </Principal>
+      <Dependent Role="tblFuncionario">
+        <PropertyRef Name="nldSetor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

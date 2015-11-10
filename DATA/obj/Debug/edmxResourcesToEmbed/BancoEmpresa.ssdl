@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BancoEmpresaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BancoEmpresaModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="BancoEmpresaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblFuncionario" EntityType="BancoEmpresaModel.Store.tblFuncionario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblSetor" EntityType="BancoEmpresaModel.Store.tblSetor" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tblFuncionario_tblSetor" Association="BancoEmpresaModel.Store.FK_tblFuncionario_tblSetor">
+      <End Role="tblSetor" EntitySet="tblSetor" />
+      <End Role="tblFuncionario" EntitySet="tblFuncionario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblFuncionario">
+    <Key>
+      <PropertyRef Name="nldFuncionario" />
+    </Key>
+    <Property Name="nldFuncionario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sNome" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="sNascimento" Type="date" Nullable="false" />
+    <Property Name="sCPF" Type="char" Nullable="false" MaxLength="14" />
+    <Property Name="sCargo" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="nldSetor" Type="int" Nullable="false" />
+    <Property Name="sSalario" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblSetor">
+    <Key>
+      <PropertyRef Name="nldSetor" />
+    </Key>
+    <Property Name="nldSetor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sSetor" Type="varchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_tblFuncionario_tblSetor">
+    <End Role="tblSetor" Type="BancoEmpresaModel.Store.tblSetor" Multiplicity="1" />
+    <End Role="tblFuncionario" Type="BancoEmpresaModel.Store.tblFuncionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSetor">
+        <PropertyRef Name="nldSetor" />
+      </Principal>
+      <Dependent Role="tblFuncionario">
+        <PropertyRef Name="nldSetor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

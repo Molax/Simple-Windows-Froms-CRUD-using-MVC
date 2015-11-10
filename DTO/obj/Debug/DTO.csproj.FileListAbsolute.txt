@@ -1,0 +1,8 @@
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\bin\Debug\DTO.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\bin\Debug\DTO.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\obj\Debug\DTO.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\obj\Debug\DTO.pdb
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\bin\Debug\DTO.dll.config
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\bin\Debug\EntityFramework.dll
+c:\Users\Joaop\documents\visual studio 2012\Projects\APP\DTO\bin\Debug\EntityFramework.xml

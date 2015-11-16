@@ -7,7 +7,7 @@ Please check this steps to get no further problems.
 
 1 - make sure you have Microsoft SQL Server Installed and a login with windows authenticaion .
 
-2 - Go to Microsoft SQL Server and run a new query with the text of the Script_Database contained in this project.
+2 - Run the Database.sql file contained on this project to create the DB used on this example
 
 3 - Check if the Database was created.
 

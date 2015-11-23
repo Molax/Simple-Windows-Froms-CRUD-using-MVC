@@ -62,7 +62,7 @@ namespace APP
 
                 MessageBox.Show("Funcionário Cadastrado com sucesso !", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
 
-                LimpaCampos();
+                //LimpaCampos();
             }
             else
             {
